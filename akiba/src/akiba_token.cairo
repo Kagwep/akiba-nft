@@ -14,8 +14,7 @@ mod AKibaToken {
         ref self: ContractState,
         name: felt252,
         symbol: felt252,
-        owner: ContractAddress,
-        token_id: u256
+        owner: ContractAddress
     ) {
 
         let mut unsafe_state = ERC721::unsafe_new_contract_state();
@@ -141,7 +140,6 @@ mod AKibaToken {
     fn safeMint( ref self: ContractState, to: ContractAddress, token_id: u256, data: Span<felt252>) {
         let mut unsafe_state = ERC721::unsafe_new_contract_state();
         ERC721::InternalImpl::_safe_mint(ref unsafe_state, to, token_id,  data);
-
     }
         
 
